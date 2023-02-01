@@ -1,3 +1,4 @@
+'''Written by Jøran Lillegård 2023'''
 import random
 from vehicles import Car, Truck, SUV
 
