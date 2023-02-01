@@ -12,6 +12,7 @@ def fileToDictionary(filename):
 
 def generateCars():
     car_list = []
+    # Change the name on the input file here
     v_dict = fileToDictionary('box_a.txt')
     cars = {'Volvo': {'car': {'S60', 'S90', 'V60'}, 'SUV': {'ZC40', 'XC60', 'XC90'},},
             'Volkswagen': {'truck': {'Amarok', 'Crafter Pickup', 'Transporter Pickup'}, 'car': {'Golf', 'Passat', 'Jetta'}, 'SUV': {'ID4', 'T-Cross', 'T-Roc'}},
@@ -25,9 +26,11 @@ def generateCars():
             'Peugeot': {'truck': {'Landtrek'}, 'car':{'208', '301', '308'}, 'SUV': {'3008', '2008', '5008'}}
             }
     for regno in v_dict:
+        # Makes random choises for the brand, model and type
         brand = random.choice(list(cars))
         v_type = random.choice(list(cars[brand]))
         car = random.choice(list(cars[brand][v_type]))
+        # Appending the choices into the correct class object
         if v_type == 'car':
             car_list.append(Car(f'{brand} {car}', random.randint(2011, 2023), 
                                     random.randint(0, 200000), random.randint(15000, 900000), 
@@ -40,4 +43,7 @@ def generateCars():
             car_list.append(SUV(f'{brand} {car}', random.randint(2011, 2023), 
                                     random.randint(0, 200000), random.randint(15000, 900000), 
                                     random.choice([2, 3, 4]), regno))
+        else:
+            pass
+        
     return car_list
