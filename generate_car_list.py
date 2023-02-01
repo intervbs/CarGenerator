@@ -25,20 +25,19 @@ def generateCars():
             'Peugeot': {'truck': {'Landtrek'}, 'car':{'208', '301', '308'}, 'SUV': {'3008', '2008', '5008'}}
             }
     for regno in v_dict:
-        if regno not in car_list:
-            brand = random.choice(list(cars))
-            v_type = random.choice(list(cars[brand]))
-            car = random.choice(list(cars[brand][v_type]))
-            if v_type == 'car':
-                car_list.append(Car(f'{brand} {car}', random.randint(2011, 2023), 
-                                        random.randint(0, 200000), random.randint(15000, 900000), 
-                                        random.choice([2, 4]), regno))
-            elif v_type == 'truck':
-                car_list.append(Truck(f'{brand} {car}', random.randint(2011, 2023), 
-                                        random.randint(0, 200000), random.randint(15000, 900000), 
-                                        random.choice(['2WD', '4WD']), regno))
-            elif v_type == 'SUV':
-                car_list.append(SUV(f'{brand} {car}', random.randint(2011, 2023), 
-                                        random.randint(0, 200000), random.randint(15000, 900000), 
-                                        random.choice([2, 3, 4]), regno))
+        brand = random.choice(list(cars))
+        v_type = random.choice(list(cars[brand]))
+        car = random.choice(list(cars[brand][v_type]))
+        if v_type == 'car':
+            car_list.append(Car(f'{brand} {car}', random.randint(2011, 2023), 
+                                    random.randint(0, 200000), random.randint(15000, 900000), 
+                                    random.choice([2, 4]), regno))
+        elif v_type == 'truck':
+            car_list.append(Truck(f'{brand} {car}', random.randint(2011, 2023), 
+                                    random.randint(0, 200000), random.randint(15000, 900000), 
+                                    random.choice(['2WD', '4WD']), regno))
+        elif v_type == 'SUV':
+            car_list.append(SUV(f'{brand} {car}', random.randint(2011, 2023), 
+                                    random.randint(0, 200000), random.randint(15000, 900000), 
+                                    random.choice([2, 3, 4]), regno))
     return car_list
